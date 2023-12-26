@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info' type="text/dar">
+  <mime-type type="text/dar">
+    <comment>DAR markup language file</comment>
+    <glob pattern="*.dar"/>
+  </mime-type>
+</mime-info>

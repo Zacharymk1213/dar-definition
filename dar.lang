@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language id="dar" name="DAR" version="0.1.1-beta" _section="Source">
+  <metadata>
+    <property name="mimetypes">text/dar</property>
+    <property name="globs">*.dar</property>
+  </metadata>
+  <styles>
+    <style id="comment" name="Comment" map-to="def:comment"/>
+    <style id="verbatim" name="Verbatim" map-to="def:verbatim"/>
+    <style id="header" name="Header" map-to="def:header"/>
+    <style id="list" name="List" map-to="def:list"/>
+    <style id="emphasis" name="Emphasis" map-to="def:emphasis"/>
+    <style id="code" name="Code" map-to="def:code"/>
+    <style id="link" name="Link" map-to="def:link"/>
+    <style id="note" name="Note" map-to="def:note"/>
+  </styles>
+  <definitions>
+    <context id="dar">
+      <!-- Add specific DAR language rules here -->
+      <!-- For simplicity, add only basic elements based on provided syntax -->
+
+      <!-- Comments -->
+      <include>
+        <!-- Single-line comments -->
+        <context id="comment" style-ref="comment">
+          <start>#</start>
+          <end>$</end>
+        </context>
+
+        <!-- Comment blocks -->
+        <context id="comment-block" style-ref="comment">
+          <start>#{</start>
+          <end>#}</end>
+        </context>
+
+        <!-- Verbatim -->
+        <context id="verbatim" style-ref="verbatim">
+          <start>=</start>
+          <end>=</end>
+        </context>
+
+        <!-- Verbatim blocks -->
+        <context id="verbatim-block" style-ref="verbatim">
+          <start>={</start>
+          <end>=}</end>
+        </context>
+
+        <!-- Headers -->
+        <context id="header" style-ref="header">
+          <start>%</start>
+          <end>$</end>
+        </context>
+
+        <!-- Sub-Headers -->
+        <context id="sub-header" style-ref="header">
+          <start>%%</start>
+          <end>$</end>
+        </context>
+
+        <!-- Sub-Sub-Headers -->
+        <context id="sub-sub-header" style-ref="header">
+          <start>%%%</start>
+          <end>$</end>
+        </context>
+
+        <!-- Nested Headers -->
+        <context id="nested-header" style-ref="header">
+          <start>%{</start>
+          <end>%}</end>
+        </context>
+
+        <!-- Nested Sub-Headers -->
+        <context id="nested-sub-header" style-ref="header">
+          <start>%%{</start>
+          <end>%%}</end>
+        </context>
+
+        <!-- Nested Sub-Sub-Headers -->
+        <context id="nested-sub-sub-header" style-ref="header">
+          <start>%%%{</start>
+          <end>%%%}</end>
+        </context>
+
+        <!-- Ordered Lists -->
+        <context id="ordered-list" style-ref="list">
+          <start>\n[0-9]+\. </start>
+          <end>\n\n</end>
+        </context>
+
+        <!-- Unordered Lists -->
+        <context id="unordered-list" style-ref="list">
+          <start>\n- </start>
+          <end>\n\n</end>
+        </context>
+
+        <!-- Emphasis -->
+        <context id="bold" style-ref="emphasis">
+          <start>*</start>
+          <end>*</end>
+        </context>
+
+        <context id="italics" style-ref="emphasis">
+          <start>/</start>
+          <end>/</end>
+        </context>
+
+        <context id="underlined" style-ref="emphasis">
+          <start>_</start>
+          <end>_</end>
+        </context>
+
+        <context id="strikethrough" style-ref="emphasis">
+          <start>~</start>
+          <end>~</end>
+        </context>
+
+        <!-- Code -->
+        <context id="inline-code" style-ref="code">
+          <start>`</start>
+          <end>`</end>
+        </context>
+
+        <!-- Code Block -->
+        <context id="code-block" style-ref="code">
+          <start>{</start>
+          <end>`}</end>
+        </context>
+
+        <!-- Full Form Links -->
+
+        <context id="full-form-link" style-ref="link">
+          <start>\[.*\]</start>
+          <end>&lt;.*&gt;</end>
+        </context>
+
+        <!-- Short Form Links -->
+        <context id="short-form-link" style-ref="link">
+          <start>&lt;</start>
+          <end>&gt;</end>
+        </context>
+
+        <!-- Embedded Full Form Links -->
+        <context id="embedded-full-form-links" style-ref="link">
+          <start>\+\[.*\]</start>
+          <end>&lt;.*&gt;</end>
+        </context>
+
+        <!-- Embedded Short Form Links -->
+        <context id="embedded-short-form-links" style-ref="link">
+          <start>\+</start>
+          <end>&lt;.*&gt;</end>
+        </context>
+
+        <!-- Footnote Text -->
+        <context id="note-text" style-ref="note">
+          <start>\[\^.*\]</start>
+          <end>\n\n</end>
+        </context>
+
+        <!-- Footnote Marker -->
+        <context id="note-marker" style-ref="note">
+          <start>\[\^</start>
+          <end>\]</end>
+        </context>
+
+      
+
+      </include>
+    </context>
+  </definitions>
+</language>
+
